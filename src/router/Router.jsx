@@ -37,7 +37,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:3000/jobs/${params.id}`);
+          return fetch(
+            `https://job-box-server-site-2.onrender.com/jobs/${params.id}`
+          );
         },
       },
       {
@@ -48,7 +50,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => {
-          return fetch(`http://localhost:3000/jobs/${params.id}`);
+          return fetch(
+            `https://job-box-server-site-2.onrender.com/jobs/${params.id}`
+          );
         },
       },
       {
@@ -82,9 +86,11 @@ const router = createBrowserRouter([
             <ViewApplicants></ViewApplicants>
           </PrivateRoute>
         ),
-        loader:({params})=>{
-          return fetch(`http://localhost:3000/job-applications/${params.id}`)
-        }
+        loader: ({ params }) => {
+          return fetch(
+            `https://job-box-server-site-2.onrender.com/job-applications/${params.id}`
+          );
+        },
       },
     ],
   },

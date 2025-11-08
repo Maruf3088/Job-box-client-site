@@ -9,7 +9,7 @@ const AllJobs = () => {
 
   // Fetch jobs
   useEffect(() => {
-    fetch("http://localhost:3000/jobs")
+    fetch("https://job-box-server-site-2.onrender.com/jobs")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);

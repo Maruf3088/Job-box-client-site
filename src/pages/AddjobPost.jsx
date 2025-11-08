@@ -52,7 +52,7 @@ const AddJobPost = () => {
       status,
     };
 
-    fetch("http://localhost:3000/jobs", {
+    fetch("https://job-box-server-site-2.onrender.com/jobs", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(jobData),
@@ -147,7 +147,11 @@ const AddJobPost = () => {
             />
 
             <label className="label">Job Type</label>
-            <select name="jobType" className="select select-bordered w-full" required>
+            <select
+              name="jobType"
+              className="select select-bordered w-full"
+              required
+            >
               <option value="">Select Job Type</option>
               <option value="Onsite">Onsite</option>
               <option value="Remote">Remote</option>
@@ -220,7 +224,9 @@ const AddJobPost = () => {
                 value={req}
                 onChange={(e) => handleChange(i, e.target.value, "req")}
                 className="input input-bordered w-full mb-2"
-                placeholder={`Requirement ${i + 1} (e.g. 2+ years experience with React)`}
+                placeholder={`Requirement ${
+                  i + 1
+                } (e.g. 2+ years experience with React)`}
               />
             ))}
 
@@ -241,7 +247,9 @@ const AddJobPost = () => {
                 value={res}
                 onChange={(e) => handleChange(i, e.target.value, "res")}
                 className="input input-bordered w-full mb-2"
-                placeholder={`Responsibility ${i + 1} (e.g. Maintain frontend architecture)`}
+                placeholder={`Responsibility ${
+                  i + 1
+                } (e.g. Maintain frontend architecture)`}
               />
             ))}
 
@@ -288,7 +296,11 @@ const AddJobPost = () => {
             />
 
             <label className="label">Status</label>
-            <select name="status" className="select select-bordered w-full" required>
+            <select
+              name="status"
+              className="select select-bordered w-full"
+              required
+            >
               <option value="">Select Status</option>
               <option value="active">Active</option>
               <option value="closed">Closed</option>

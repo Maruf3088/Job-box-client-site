@@ -11,41 +11,36 @@ const MyPostedJobs = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/jobs?email=${user.email}`)
+    fetch(`https://job-box-server-site-2.onrender.com/jobs?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setJobs(data));
   }, [user.email]);
 
-  const handleDeleteJob=(jobId)=>{
-Swal.fire({
-  title: 'Are you sure?',
-  text: "You won't be able to revert this!",
-  icon: 'warning',
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
-}).then((result) => {
-  if (result.isConfirmed) {
-    fetch(`http://localhost:3000/jobs/${jobId}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          setJobs((prev) => prev.filter((job) => job._id !== jobId));
-          Swal.fire(
-            'Deleted!',
-            'Your job has been deleted.',
-            'success'
-          );
-        }
-      })
-      .catch((err) => console.error("Delete failed:", err));
-  }
-})
-
-  }
+  const handleDeleteJob = (jobId) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://job-box-server-site-2.onrender.com/jobs/${jobId}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              setJobs((prev) => prev.filter((job) => job._id !== jobId));
+              Swal.fire("Deleted!", "Your job has been deleted.", "success");
+            }
+          })
+          .catch((err) => console.error("Delete failed:", err));
+      }
+    });
+  };
   return (
     <div className="container mx-auto py-10 px-4 md:px-10 min-h-[63vh]">
       <h1 className="text-3xl font-bold text-gray-700 mb-8">

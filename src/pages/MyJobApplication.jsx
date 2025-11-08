@@ -20,7 +20,9 @@ const MyJobApplication = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/job-application?email=${user.email}`)
+    fetch(
+      `https://job-box-server-site-2.onrender.com/job-application?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setJobs(data));
   }, [user.email]);
@@ -36,9 +38,12 @@ const MyJobApplication = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/job-application/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://job-box-server-site-2.onrender.com/job-application/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -58,7 +63,6 @@ const MyJobApplication = () => {
   if (jobs.length === 0) {
     return (
       <div className="min-h-[65vh] flex flex-col justify-center items-center text-gray-500 gap-4">
-        
         <p className="text-lg font-medium">
           You haven’t applied to any jobs yet.
         </p>

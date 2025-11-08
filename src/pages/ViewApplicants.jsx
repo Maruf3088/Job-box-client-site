@@ -11,7 +11,7 @@ const ViewApplicants = () => {
   const handleStatusUpdate = (e, id) => {
     const status = e.target.value;
 
-    fetch(`http://localhost:3000/job-applications/${id}`, {
+    fetch(`https://job-box-server-site-2.onrender.com/job-applications/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status }),
@@ -28,7 +28,6 @@ const ViewApplicants = () => {
   if (!jobApplicants || jobApplicants.length === 0) {
     return (
       <div className="min-h-[65vh] flex flex-col justify-center items-center text-gray-500">
-       
         <p className="text-lg font-medium">No applicants found for this job.</p>
       </div>
     );
@@ -68,7 +67,11 @@ const ViewApplicants = () => {
                 <td>{index + 1}</td>
                 <td>
                   <div className="flex items-center gap-3">
-                  <img className="w-[40px] object-cover h-[40px] rounded-full" src={user.photoURL} alt="" />
+                    <img
+                      className="w-[40px] object-cover h-[40px] rounded-full"
+                      src={user.photoURL}
+                      alt=""
+                    />
                     <div>
                       <p className="font-semibold text-lg text-gray-800">
                         {applicant.name}

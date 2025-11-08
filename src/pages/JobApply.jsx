@@ -40,7 +40,7 @@ const JobApply = () => {
       status: "pending",
     };
 
-    fetch("http://localhost:3000/job-applications", {
+    fetch("https://job-box-server-site-2.onrender.com/job-applications", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(jobApplication),
