@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext/AuthContext";
@@ -34,6 +34,9 @@ const Login = () => {
       });
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  })
   const handleGoogleLogin = () => {
     signInWithGoogle()
       .then((res) => {

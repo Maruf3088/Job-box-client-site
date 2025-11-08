@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext/AuthContext";
@@ -81,6 +81,9 @@ const Register = () => {
         });
       });
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
