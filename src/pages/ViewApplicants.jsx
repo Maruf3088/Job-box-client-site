@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaGithub, FaLinkedin, FaFileAlt, FaUserCircle } from "react-icons/fa";
@@ -32,7 +32,9 @@ const ViewApplicants = () => {
       </div>
     );
   }
-
+useEffect(() => {
+  window.scrollTo(0, 0);
+})
   return (
     <div className="container mx-auto py-10 px-4 min-h-[65vh]">
       <div className="flex justify-between items-center mb-8">
